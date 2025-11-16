@@ -267,8 +267,6 @@ st.title("📊 AI - Forecasting Tool By Data Quest")
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
 
 if uploaded_file:
-    loader_placeholder = st.empty()
-    show_chart_loader(loader_placeholder)   # ← now this works correctly
     df = load_data(uploaded_file)
     models = {
         'ARIMA': (forecast_arima, 'short-term, interpretable'),
