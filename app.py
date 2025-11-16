@@ -141,28 +141,42 @@ def export_to_excel(results, output_path):
 # Streamlit UI
 
 clock_html = """
-<div style="position: fixed; top: 10px; left: 10px; z-index: 9999; font-family: 'Segoe UI', sans-serif; font-size: 20px; color: black; text-align: left;">
+<style>
+#clock-box {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 20px;
+  color: black;
+  text-align: left;
+  background-color: rgba(255,255,255,0.8);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+@keyframes colorShift {
+  0%   { color: #39ff14; }
+  25%  { color: #00ffff; }
+  50%  { color: #1e90ff; }
+  75%  { color: #ff00ff; }
+  100% { color: #39ff14; }
+}
+
+.animated-number {
+  animation: colorShift 10s infinite;
+  font-weight: bold;
+}
+</style>
+
+<div id="clock-box">
   <div id="clock"></div>
   <div style="font-size: 14px; margin-top: 5px;">
     Got any Question/Suggestion?<br>
     Feel free to contact me at <span style="color: #00008B; font-weight: bold;">gurpreetsinghwfm@gmail.com</span><br>
-    or WhatsApp me at 
-    <style>
-    @keyframes colorShift {
-    0%   { color: #39ff14; }   /* Neon Green */
-    25%  { color: #00ffff; }   /* Cyan */
-    50%  { color: #1e90ff; }   /* Dodger Blue */
-    75%  { color: #ff00ff; }   /* Magenta */
-    100% { color: #39ff14; }   /* Back to Neon Green */
-    }
-
-    .animated-number {
-    animation: colorShift 10s infinite;
-    font-weight: bold;
-    }
-    </style>
-    <span class="animated-number">+91-8377001181</span>
-
+    or WhatsApp me at <span class="animated-number">+91-8377001181</span>
   </div>
 </div>
 
@@ -176,8 +190,8 @@ setInterval(updateClock, 1000);
 updateClock();
 </script>
 """
+components.html(clock_html, height=0)
 
-components.html(clock_html, height=120)
 
 
 st.title("📊 AI - Forecasting Tool By Data Quest")
