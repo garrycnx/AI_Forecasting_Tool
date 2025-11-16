@@ -139,7 +139,6 @@ def export_to_excel(results, output_path):
     workbook.close()
 
 # Streamlit UI
-st.title("📊 AI - Forecasting Tool By Data Quest")
 
 clock_html = """
 <div style="position: fixed; top: 10px; left: 10px; z-index: 1000; font-family: monospace; font-size: 20px; color: black;">
@@ -163,6 +162,10 @@ updateClock();
 """
 
 components.html(clock_html, height=120)
+
+st.title("📊 AI - Forecasting Tool By Data Quest")
+
+
 
 
 
