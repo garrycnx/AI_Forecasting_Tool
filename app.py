@@ -269,17 +269,17 @@ uploaded_file = st.file_uploader("Upload CSV", type="csv")
 
 if uploaded_file:
     df = load_data(uploaded_file)
-   models = {
-    'ARIMA': (forecast_arima, 'short-term, interpretable'),
-    'SARIMA': (forecast_sarima, 'seasonal, interpretable'),
-    'Exponential Smoothing': (forecast_ets, 'seasonal smoothing'),
-    'VAR': (forecast_var, 'multivariate time series'),
-    'Random Forest': (forecast_rf, 'short-term, interpretable'),
-    'XGBoost': (forecast_xgb, 'high accuracy, nonlinear'),
-    'LightGBM': (forecast_lgb, 'high accuracy, nonlinear'),
-    'CatBoost': (forecast_catboost, 'nonlinear, categorical support'),
-    'Gradient Boosting': (forecast_gb, 'nonlinear, interpretable'),
-    'Hybrid ARIMA + XGBoost': (forecast_hybrid_arima_xgb, 'hybrid linear + nonlinear')
+    models = {
+        'ARIMA': (forecast_arima, 'short-term, interpretable'),
+        'SARIMA': (forecast_sarima, 'seasonal, interpretable'),
+        'Exponential Smoothing': (forecast_ets, 'seasonal smoothing'),
+        'VAR': (forecast_var, 'multivariate time series'),
+        'Random Forest': (forecast_rf, 'short-term, interpretable'),
+        'XGBoost': (forecast_xgb, 'high accuracy, nonlinear'),
+        'LightGBM': (forecast_lgb, 'high accuracy, nonlinear'),
+        'CatBoost': (forecast_catboost, 'nonlinear, categorical support'),
+        'Gradient Boosting': (forecast_gb, 'nonlinear, interpretable'),
+        'Hybrid ARIMA + XGBoost': (forecast_hybrid_arima_xgb, 'hybrid linear + nonlinear')
     }
 
 
