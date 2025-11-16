@@ -21,59 +21,61 @@ from sklearn.ensemble import GradientBoostingRegressor
 
 
 # HTML code to show animated chart loader 
-loader_placeholder.markdown("""
-<style>
-.loader-container {
-    text-align: center;
-    padding: 20px;
-}
+def show_chart_loader(loader_placeholder):
+    loader_placeholder.markdown("""
+    <style>
+    .loader-container {
+        text-align: center;
+        padding: 20px;
+    }
 
-.loader-bars {
-    display: inline-block;
-    width: 40px;
-    height: 30px;
-    position: relative;
-}
+    .loader-bars {
+        display: inline-block;
+        width: 40px;
+        height: 30px;
+        position: relative;
+    }
 
-.loader-bars div {
-    display: inline-block;
-    width: 6px;
-    height: 20px;
-    margin: 2px;
-    background: #1E90FF;
-    animation: loader 1s infinite ease-in-out;
-}
-.loader-bars div:nth-child(1) { animation-delay: 0s; }
-.loader-bars div:nth-child(2) { animation-delay: 0.1s; }
-.loader-bars div:nth-child(3) { animation-delay: 0.2s; }
-.loader-bars div:nth-child(4) { animation-delay: 0.3s; }
-.loader-bars div:nth-child(5) { animation-delay: 0.4s; }
+    .loader-bars div {
+        display: inline-block;
+        width: 6px;
+        height: 20px;
+        margin: 2px;
+        background: #1E90FF;
+        animation: loader 1s infinite ease-in-out;
+    }
+    .loader-bars div:nth-child(1) { animation-delay: 0s; }
+    .loader-bars div:nth-child(2) { animation-delay: 0.1s; }
+    .loader-bars div:nth-child(3) { animation-delay: 0.2s; }
+    .loader-bars div:nth-child(4) { animation-delay: 0.3s; }
+    .loader-bars div:nth-child(5) { animation-delay: 0.4s; }
 
-@keyframes loader {
-    0% { transform: scaleY(1); }
-    50% { transform: scaleY(2); }
-    100% { transform: scaleY(1); }
-}
+    @keyframes loader {
+        0% { transform: scaleY(1); }
+        50% { transform: scaleY(2); }
+        100% { transform: scaleY(1); }
+    }
 
-.loader-text {
-    font-size: 18px;
-    margin-top: 10px;
-    color: #333;
-}
-</style>
+    .loader-text {
+        font-size: 18px;
+        margin-top: 10px;
+        color: #333;
+    }
+    </style>
 
-<div class="loader-container">
-    <div class="loader-bars">
-        <div></div><div></div><div></div><div></div><div></div>
+    <div class="loader-container">
+        <div class="loader-bars">
+            <div></div><div></div><div></div><div></div><div></div>
+        </div>
+
+        <div class="loader-text">
+            📊 <b>Generating your forecast...</b><br>
+            ☕ Grab a coffee — the AI is working!<br>
+            <b>- Gurpreet Singh</b>
+        </div>
     </div>
+    """, unsafe_allow_html=True)
 
-    <div class="loader-text">
-        📊 <b>Generating your forecast...</b><br>
-        ☕ Grab a coffee — the AI is working!<br>
-        <b>- Gurpreet Singh</b>
-    </div>
-</div>
-""", unsafe_allow_html=True)
 
 
 
@@ -323,8 +325,8 @@ st.title("📊 AI - Forecasting Tool By Data Quest")
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
 
 if uploaded_file:
-    loader_placeholder = st.empty()   # Create placeholder
-    show_chart_loader(loader_placeholder)  # Show loader animation
+    loader_placeholder = st.empty()
+    show_chart_loader(loader_placeholder)   # ← now this works correctly
     df = load_data(uploaded_file)
     models = {
         'ARIMA': (forecast_arima, 'short-term, interpretable'),
@@ -355,7 +357,7 @@ if uploaded_file:
     # Show actual vs forecast for each model
         # Show actual vs forecast for each model
 
-    loader_placeholder.empty()   
+
     st.subheader("📉 Actual vs Forecast")
     for name in models.keys():
         st.write(f"**{name}**")
