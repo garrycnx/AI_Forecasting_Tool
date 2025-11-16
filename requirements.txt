@@ -7,3 +7,16 @@ xgboost
 lightgbm
 statsmodels
 xlsxwriter
+catboost
+statsmodels
+xgboost
+lightgbm
+catboost
+scikit-learn
+pandas
+numpy
+matplotlib
+tensorflow
+prophet
+neuralprophet
+darts
