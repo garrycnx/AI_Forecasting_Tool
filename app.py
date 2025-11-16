@@ -306,8 +306,7 @@ st.title("📊 AI - Forecasting Tool By Data Quest")
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
 
 if uploaded_file:
-show_robot_loader()
-
+    show_robot_loader()
     df = load_data(uploaded_file)
     models = {
         'ARIMA': (forecast_arima, 'short-term, interpretable'),
