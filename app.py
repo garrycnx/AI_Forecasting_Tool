@@ -145,7 +145,7 @@ clock_html = """
   <div id="clock"></div>
   <div style="font-size: 14px; margin-top: 5px;">
     Got any Question/Suggestion?<br>
-    Feel free to contact me at <b>gurpreetsinghwfm@gmail.com</b><br>
+    Feel free to contact me at <span style="color: #39ff14; font-weight: bold;">gurpreetsinghwfm@gmail.com</span><br>
     or WhatsApp me at <b>+91-8377001181</b>
   </div>
 </div>
