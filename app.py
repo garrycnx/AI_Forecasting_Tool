@@ -220,7 +220,7 @@ clock_html = """
   text-align: left;
   background-color: rgba(255,255,255,0.8);
   padding: 10px 15px;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
