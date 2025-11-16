@@ -363,6 +363,8 @@ if uploaded_file:
 
     # Show actual vs forecast for each model
         # Show actual vs forecast for each model
+
+    loader_placeholder.empty()    
     st.subheader("📉 Actual vs Forecast")
     for name in models.keys():
         st.write(f"**{name}**")
@@ -402,7 +404,7 @@ if uploaded_file:
     export_to_excel(results, "forecast_summary.xlsx")
     with open("forecast_summary.xlsx", "rb") as f:
         st.download_button("📥 Download Forecast Excel", f, "forecast_summary.xlsx")
-    loader_placeholder.empty()
+    
     st.success("✅ Forecast complete. Models ranked by RMSE in the summary sheet.")
 
 
