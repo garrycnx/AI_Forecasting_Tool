@@ -19,7 +19,45 @@ from catboost import CatBoostRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 
 
+def show_robot_loader():
+    robot_html = """
+    <style>
+    .robot-container {
+        width: 100%;
+        overflow: hidden;
+        margin-top: 15px;
+    }
 
+    .robot-move {
+        display: inline-block;
+        animation: robotWalk 12s linear infinite;
+        font-size: 45px;
+    }
+
+    @keyframes robotWalk {
+        0%   { transform: translateX(-120%); }
+        100% { transform: translateX(120%); }
+    }
+
+    .loader-text {
+        font-size: 20px;
+        font-weight: bold;
+        color: #222;
+        text-align: center;
+        margin-top: 10px;
+    }
+    </style>
+
+    <div class="robot-container">
+        <div class="robot-move">🤖🚶‍♂️💡</div>
+    </div>
+
+    <div class="loader-text">
+        ☕ Please wait… AI Forecasting Tool is working hard in the background!  
+        <br>— Regards, Gurpreet Singh
+    </div>
+    """
+    st.markdown(robot_html, unsafe_allow_html=True)
 
 
 
@@ -268,6 +306,8 @@ st.title("📊 AI - Forecasting Tool By Data Quest")
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
 
 if uploaded_file:
+show_robot_loader()
+
     df = load_data(uploaded_file)
     models = {
         'ARIMA': (forecast_arima, 'short-term, interpretable'),
