@@ -13,19 +13,6 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-# Centered header using HTML
-st.markdown("<h2 style='text-align: center;'>📅 Forecast Settings</h2>", unsafe_allow_html=True)
-
-# Center the dropdown using columns
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    forecast_freq = st.selectbox(
-        "Select Forecast Frequency",
-        ["Daily", "Weekly", "Monthly", "Yearly"]
-    )
-
-
-
 
 # Load and clean data
 def load_data(uploaded_file):
