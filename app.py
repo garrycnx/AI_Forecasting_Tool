@@ -141,7 +141,7 @@ def export_to_excel(results, output_path):
 # Streamlit UI
 
 clock_html = """
-<div style="position: fixed; top: 10px; left: 10px; z-index: 9999; font-family: 'Segoe UI', sans-serif; font-size: 20px; color: black; text-align: left;">
+<div style="position: fixed; top: 10px; left: 10px; z-index: 9999; font-family: 'Segoe UI', sans-serif; font-size: 20px; color: black; text-align: right;">
   <div id="clock"></div>
   <div style="font-size: 14px; margin-top: 5px;">
     Got any Question/Suggestion?<br>
@@ -163,9 +163,6 @@ clock_html = """
     </style>
     <span class="animated-number">+91-8377001181</span>
 
-
-
-
   </div>
 </div>
 
@@ -184,9 +181,6 @@ components.html(clock_html, height=120)
 
 
 st.title("📊 AI - Forecasting Tool By Data Quest")
-
-
-
 
 
 uploaded_file = st.file_uploader("Upload CSV", type="csv")
