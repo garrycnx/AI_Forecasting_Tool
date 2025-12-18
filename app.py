@@ -18,6 +18,20 @@ from statsmodels.tsa.api import VAR
 from catboost import CatBoostRegressor
 from sklearn.ensemble import GradientBoostingRegressor
 
+st.markdown(
+    """
+    <style>
+    /* Hide Streamlit header */
+    header {visibility: hidden;}
+
+    /* Remove top padding */
+    .block-container {
+        padding-top: 1rem;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 
